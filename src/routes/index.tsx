@@ -1,19 +1,37 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from '@tanstack/react-router';
+import { Navbar } from '@/components/Navbar';
+import { HeroSection } from '@/components/HeroSection';
+import { WorkSection } from '@/components/WorkSection';
+import { ExperienceSection } from '@/components/ExperienceSection';
+import { SkillsSection } from '@/components/SkillsSection';
+import { TeardownSection } from '@/components/TeardownSection';
+import { ContactSection } from '@/components/ContactSection';
+import { useCustomCursor } from '@/hooks/useCustomCursor';
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute('/')({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: 'Bhaswati Chakraborty — AI Product Manager' },
+      { name: 'description', content: 'MBA candidate at SCMHRD building AI products. 3.5 years enterprise tech. Available for PM roles.' },
+      { property: 'og:title', content: 'Bhaswati Chakraborty — AI Product Manager' },
+      { property: 'og:description', content: 'MBA candidate at SCMHRD building AI products. 3.5 years enterprise tech.' },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+function Index() {
+  useCustomCursor();
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="bg-background text-foreground min-h-screen" style={{ cursor: 'none' }}>
+      <Navbar />
+      <HeroSection />
+      <WorkSection />
+      <ExperienceSection />
+      <SkillsSection />
+      <TeardownSection />
+      <ContactSection />
     </div>
   );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
 }
