@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as WorkFocusstackRouteImport } from './routes/work.focusstack'
+import { Route as WorkCampustribeRouteImport } from './routes/work.campustribe'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WorkFocusstackRoute = WorkFocusstackRouteImport.update({
+  id: '/work/focusstack',
+  path: '/work/focusstack',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorkCampustribeRoute = WorkCampustribeRouteImport.update({
+  id: '/work/campustribe',
+  path: '/work/campustribe',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/work/campustribe': typeof WorkCampustribeRoute
+  '/work/focusstack': typeof WorkFocusstackRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/work/campustribe': typeof WorkCampustribeRoute
+  '/work/focusstack': typeof WorkFocusstackRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/work/campustribe': typeof WorkCampustribeRoute
+  '/work/focusstack': typeof WorkFocusstackRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/work/campustribe' | '/work/focusstack'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/work/campustribe' | '/work/focusstack'
+  id: '__root__' | '/' | '/work/campustribe' | '/work/focusstack'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  WorkCampustribeRoute: typeof WorkCampustribeRoute
+  WorkFocusstackRoute: typeof WorkFocusstackRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/work/focusstack': {
+      id: '/work/focusstack'
+      path: '/work/focusstack'
+      fullPath: '/work/focusstack'
+      preLoaderRoute: typeof WorkFocusstackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/work/campustribe': {
+      id: '/work/campustribe'
+      path: '/work/campustribe'
+      fullPath: '/work/campustribe'
+      preLoaderRoute: typeof WorkCampustribeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  WorkCampustribeRoute: WorkCampustribeRoute,
+  WorkFocusstackRoute: WorkFocusstackRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
