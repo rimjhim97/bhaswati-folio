@@ -59,7 +59,7 @@ export function SkillsSection() {
             {certs.map((c) => (
               <div key={c.name} className="scroll-child p-5 rounded-2xl" style={{ background: '#111', border: '1px solid oklch(1 0 0 / 8%)' }}>
                 <div className="flex items-center gap-3">
-                  <span className="text-green-400 text-sm">✓</span>
+                  <span className="text-sm" style={{ color: 'oklch(0.7 0.15 145)' }}>✓</span>
                   <div>
                     <p className="text-[14px] text-foreground">{c.name}</p>
                     <p className="text-[12px]" style={{ color: 'oklch(1 0 0 / 40%)' }}>{c.issuer}</p>
