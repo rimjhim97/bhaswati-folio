@@ -28,7 +28,7 @@ const education = [
   {
     date: '2024 – 2026',
     role: 'MBA',
-    company: 'SCMHRD, Symbiosis International · Pune · 6.75 CGPA',
+    company: 'SCMHRD, Symbiosis International · Pune',
     bullets: [
       'National Finalist — CASEino, Grant Thornton 2025',
       'Semi-Finalist — GSK E³ and TATA Imagination Challenge 2025',
@@ -38,31 +38,35 @@ const education = [
   {
     date: '2016 – 2020',
     role: 'B.Tech',
-    company: 'Haldia Institute of Technology, MAKAUT · 8.79 CGPA',
+    company: 'Haldia Institute of Technology, MAKAUT',
     bullets: [],
-    badge: '8.79',
+    badge: '',
   },
 ];
 
 function TimelineRow({ item }: { item: typeof experiences[0] }) {
   return (
     <div
-      className="scroll-child grid md:grid-cols-[180px_1fr_120px] gap-4 py-6 transition-all duration-300 hover:bg-[oklch(1_0_0_/_2%)]"
+      className="scroll-child grid md:grid-cols-[1fr_160px] gap-4 py-6 transition-all duration-300 hover:bg-[oklch(1_0_0_/_2%)]"
       style={{ borderBottom: '1px solid oklch(1 0 0 / 6%)' }}
     >
-      <span className="hidden md:block text-[12px] shrink-0" style={{ fontFamily: 'monospace', color: 'oklch(1 0 0 / 30%)' }}>
-        {item.date}
-      </span>
       <div>
-        <h4 className="text-[16px] font-medium text-foreground mb-1">{item.role}</h4>
+        <div className="flex items-center gap-3 mb-1">
+          <h4 className="text-[16px] font-medium text-foreground">{item.role}</h4>
+          {item.badge && (
+            <span className="text-[11px] px-3 py-0.5 rounded-full" style={{ border: '1px solid oklch(1 0 0 / 15%)', color: 'oklch(1 0 0 / 50%)' }}>
+              {item.badge}
+            </span>
+          )}
+        </div>
         <p className="text-[13px] mb-2" style={{ color: 'oklch(1 0 0 / 40%)' }}>{item.company}</p>
         {item.bullets.map((b, j) => (
           <p key={j} className="text-[13px] leading-relaxed" style={{ color: 'oklch(1 0 0 / 30%)' }}>• {b}</p>
         ))}
       </div>
       <div className="flex md:justify-end items-start">
-        <span className="text-[11px] px-3 py-1 rounded-full" style={{ border: '1px solid oklch(1 0 0 / 15%)', color: 'oklch(1 0 0 / 50%)' }}>
-          {item.badge}
+        <span className="text-[12px] shrink-0" style={{ fontFamily: 'monospace', color: 'oklch(1 0 0 / 30%)' }}>
+          {item.date}
         </span>
       </div>
     </div>
