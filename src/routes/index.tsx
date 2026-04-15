@@ -23,7 +23,7 @@ function Index() {
   useCustomCursor();
 
   return (
-    <div className="bg-background text-foreground min-h-screen" style={{ cursor: 'none' }}>
+    <div className="bg-background text-foreground min-h-screen neon-bg" style={{ cursor: 'none' }}>
       <Navbar />
       <HeroSection />
       <WorkSection />
