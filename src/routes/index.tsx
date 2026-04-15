@@ -4,7 +4,6 @@ import { HeroSection } from '@/components/HeroSection';
 import { WorkSection } from '@/components/WorkSection';
 import { ExperienceSection } from '@/components/ExperienceSection';
 import { SkillsSection } from '@/components/SkillsSection';
-import { TeardownSection } from '@/components/TeardownSection';
 import { ContactSection } from '@/components/ContactSection';
 import { useCustomCursor } from '@/hooks/useCustomCursor';
 
@@ -24,13 +23,12 @@ function Index() {
   useCustomCursor();
 
   return (
-    <div className="bg-background text-foreground min-h-screen" style={{ cursor: 'none' }}>
+    <div className="bg-background text-foreground min-h-screen neon-bg" style={{ cursor: 'none' }}>
       <Navbar />
       <HeroSection />
       <WorkSection />
       <ExperienceSection />
       <SkillsSection />
-      <TeardownSection />
       <ContactSection />
     </div>
   );
