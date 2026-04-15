@@ -54,6 +54,21 @@ function WorkCard({
   return <Link to={linkHref as any} data-hover className="block h-full">{inner}</Link>;
 }
 
+function PreviewBox({ children, gradient }: { children: React.ReactNode; gradient: string }) {
+  return (
+    <div
+      className="rounded-xl overflow-hidden flex items-center justify-center relative"
+      style={{
+        border: '1px solid oklch(1 0 0 / 8%)',
+        background: gradient,
+        minHeight: '140px',
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
 export function WorkSection() {
   const ref = useScrollAnimation();
 
@@ -97,14 +112,15 @@ export function WorkSection() {
                   <a href="https://github.com/rimjhim97" target="_blank" rel="noopener noreferrer" data-hover>GitHub ↗</a>
                 </div>
               </div>
-              <div className="rounded-xl overflow-hidden flex items-center justify-center" style={{ background: '#161616', border: '1px solid oklch(1 0 0 / 6%)', minHeight: '200px' }}>
-                <iframe
-                  src="https://campus-tribe-mate.lovable.app"
-                  title="CampusTribe Preview"
-                  className="w-full h-full min-h-[280px] rounded-xl pointer-events-none"
-                  style={{ border: 'none', transform: 'scale(0.6)', transformOrigin: 'center center', width: '166%', height: '166%' }}
-                />
-              </div>
+              <PreviewBox gradient="linear-gradient(135deg, #0a1628 0%, #162038 50%, #0d1a2e 100%)">
+                <div className="text-center p-6">
+                  <div className="w-16 h-16 mx-auto mb-3 rounded-2xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, oklch(0.5 0.15 250), oklch(0.4 0.12 280))', boxShadow: '0 0 30px oklch(0.5 0.15 250 / 30%)' }}>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  </div>
+                  <p className="text-[13px] font-medium text-foreground">CampusTribe</p>
+                  <p className="text-[10px] mt-1" style={{ color: 'oklch(1 0 0 / 30%)' }}>AI-Powered Social Matching</p>
+                </div>
+              </PreviewBox>
             </div>
           </Link>
         </div>
@@ -120,14 +136,15 @@ export function WorkSection() {
               linkText="View project →"
               linkHref="/work/focusstack"
               preview={
-                <div className="rounded-xl overflow-hidden" style={{ border: '1px solid oklch(1 0 0 / 6%)' }}>
-                  <iframe
-                    src="https://mind-stack-calm.vercel.app/"
-                    title="FocusAI Preview"
-                    className="w-full pointer-events-none"
-                    style={{ border: 'none', height: '160px', transform: 'scale(0.5)', transformOrigin: 'top left', width: '200%' }}
-                  />
-                </div>
+                <PreviewBox gradient="linear-gradient(135deg, #0f1922 0%, #1a2a3a 50%, #0f1922 100%)">
+                  <div className="text-center p-4">
+                    <div className="w-14 h-14 mx-auto mb-3 rounded-2xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, oklch(0.55 0.12 200), oklch(0.45 0.1 220))', boxShadow: '0 0 25px oklch(0.55 0.12 200 / 25%)' }}>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <p className="text-[12px] font-medium text-foreground">FocusStack</p>
+                    <p className="text-[9px] mt-1" style={{ color: 'oklch(1 0 0 / 30%)' }}>AI Pomodoro Coach</p>
+                  </div>
+                </PreviewBox>
               }
             />
           </div>
@@ -152,14 +169,15 @@ export function WorkSection() {
               linkHref="https://canva.link/rub7uma94jo6b7m"
               isExternal={true}
               preview={
-                <div className="rounded-xl overflow-hidden" style={{ border: '1px solid oklch(1 0 0 / 6%)' }}>
-                  <iframe
-                    src="https://canva.link/rub7uma94jo6b7m"
-                    title="Product Deck Preview"
-                    className="w-full pointer-events-none"
-                    style={{ border: 'none', height: '160px', transform: 'scale(0.5)', transformOrigin: 'top left', width: '200%' }}
-                  />
-                </div>
+                <PreviewBox gradient="linear-gradient(135deg, #1a1520 0%, #251d30 50%, #1a1520 100%)">
+                  <div className="text-center p-4">
+                    <div className="w-14 h-14 mx-auto mb-3 rounded-2xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, oklch(0.5 0.1 320), oklch(0.4 0.08 340))', boxShadow: '0 0 25px oklch(0.5 0.1 320 / 25%)' }}>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+                    </div>
+                    <p className="text-[12px] font-medium text-foreground">Product Deck</p>
+                    <p className="text-[9px] mt-1" style={{ color: 'oklch(1 0 0 / 30%)' }}>Strategy & GTM</p>
+                  </div>
+                </PreviewBox>
               }
             />
           </div>
