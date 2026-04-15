@@ -1,23 +1,8 @@
-import { useEffect, useRef } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import bhaswatiPhoto from '@/assets/bhaswati-photo.jpg';
 
 export function HeroSection() {
   const sectionRef = useScrollAnimation();
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const onMouseMove = (e: MouseEvent) => {
-      if (!cardRef.current) return;
-      const rect = cardRef.current.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      const rotateY = ((e.clientX - centerX) / window.innerWidth) * 20;
-      const rotateX = ((e.clientY - centerY) / window.innerHeight) * -20;
-      cardRef.current.style.transform = `perspective(800px) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
-    };
-    document.addEventListener('mousemove', onMouseMove);
-    return () => document.removeEventListener('mousemove', onMouseMove);
-  }, []);
 
   return (
     <section ref={sectionRef} className="min-h-screen flex items-center relative px-6 pt-20" id="hero">
@@ -67,53 +52,20 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Right column — 3D card */}
+        {/* Right column — Circular photo */}
         <div className="scroll-child flex justify-center relative">
           <div
-            ref={cardRef}
-            className="w-[340px] h-[420px] rounded-3xl relative overflow-hidden"
+            className="w-[260px] h-[260px] md:w-[320px] md:h-[320px] rounded-full overflow-hidden"
             style={{
-              background: '#141414',
-              border: '1px solid oklch(1 0 0 / 8%)',
-              transition: 'transform 0.1s ease-out',
-              backgroundImage: `
-                linear-gradient(oklch(1 0 0 / 3%) 1px, transparent 1px),
-                linear-gradient(90deg, oklch(1 0 0 / 3%) 1px, transparent 1px)
-              `,
-              backgroundSize: '40px 40px',
+              border: '2px solid oklch(1 0 0 / 12%)',
+              boxShadow: '0 0 60px oklch(0.8 0 0 / 8%), 0 0 120px oklch(0.7 0 0 / 4%)',
             }}
           >
-            <div className="flex items-center justify-center h-full">
-              <div
-                className="w-[180px] h-[180px] rounded-full flex items-center justify-center"
-                style={{ background: '#1e1e1e', border: '2px solid oklch(1 0 0 / 12%)' }}
-              >
-                <span className="text-[52px] italic text-foreground" style={{ fontFamily: 'var(--font-family-display)' }}>
-                  BC
-                </span>
-              </div>
-            </div>
-            <div className="absolute bottom-4 left-0 right-0 text-center">
-              <span className="text-[10px] tracking-[0.15em]" style={{ fontFamily: 'monospace', color: 'oklch(1 0 0 / 20%)' }}>
-                SCMHRD · PUNE · 2026
-              </span>
-            </div>
-          </div>
-
-          {/* Floating chips */}
-          <div className="hidden md:block">
-            <div className="absolute -top-2 right-4 px-3 py-1.5 rounded-full text-[11px] text-foreground"
-              style={{ border: '1px solid oklch(1 0 0 / 15%)', background: 'oklch(0.07 0 0 / 90%)', backdropFilter: 'blur(8px)' }}>
-              AI PM
-            </div>
-            <div className="absolute bottom-16 -right-4 px-3 py-1.5 rounded-full text-[11px] text-foreground"
-              style={{ border: '1px solid oklch(1 0 0 / 15%)', background: 'oklch(0.07 0 0 / 90%)', backdropFilter: 'blur(8px)' }}>
-              Salesforce AI Associate
-            </div>
-            <div className="absolute top-1/2 -left-8 px-3 py-1.5 rounded-full text-[11px] text-foreground"
-              style={{ border: '1px solid oklch(1 0 0 / 15%)', background: 'oklch(0.07 0 0 / 90%)', backdropFilter: 'blur(8px)' }}>
-              CSPO Certified
-            </div>
+            <img
+              src={bhaswatiPhoto}
+              alt="Bhaswati Chakraborty"
+              className="w-full h-full object-cover object-top"
+            />
           </div>
         </div>
       </div>

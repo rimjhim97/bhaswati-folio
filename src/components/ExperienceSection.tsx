@@ -22,10 +22,13 @@ const experiences = [
     ],
     badge: '3.5 yrs',
   },
+];
+
+const education = [
   {
     date: '2024 – 2026',
     role: 'MBA',
-    company: 'SCMHRD, Symbiosis International · Pune · 7.00 CGPA',
+    company: 'SCMHRD, Symbiosis International · Pune · 6.75 CGPA',
     bullets: [
       'National Finalist — CASEino, Grant Thornton 2025',
       'Semi-Finalist — GSK E³ and TATA Imagination Challenge 2025',
@@ -41,42 +44,60 @@ const experiences = [
   },
 ];
 
+function TimelineRow({ item }: { item: typeof experiences[0] }) {
+  return (
+    <div
+      className="scroll-child grid md:grid-cols-[180px_1fr_120px] gap-4 py-6 transition-all duration-300 hover:bg-[oklch(1_0_0_/_2%)]"
+      style={{ borderBottom: '1px solid oklch(1 0 0 / 6%)' }}
+    >
+      <span className="hidden md:block text-[12px] shrink-0" style={{ fontFamily: 'monospace', color: 'oklch(1 0 0 / 30%)' }}>
+        {item.date}
+      </span>
+      <div>
+        <h4 className="text-[16px] font-medium text-foreground mb-1">{item.role}</h4>
+        <p className="text-[13px] mb-2" style={{ color: 'oklch(1 0 0 / 40%)' }}>{item.company}</p>
+        {item.bullets.map((b, j) => (
+          <p key={j} className="text-[13px] leading-relaxed" style={{ color: 'oklch(1 0 0 / 30%)' }}>• {b}</p>
+        ))}
+      </div>
+      <div className="flex md:justify-end items-start">
+        <span className="text-[11px] px-3 py-1 rounded-full" style={{ border: '1px solid oklch(1 0 0 / 15%)', color: 'oklch(1 0 0 / 50%)' }}>
+          {item.badge}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export function ExperienceSection() {
   const ref = useScrollAnimation();
 
   return (
     <section id="about" ref={ref} className="py-24 px-6" style={{ background: '#060606' }}>
       <div className="max-w-[1200px] mx-auto">
+        {/* Experience */}
         <div className="scroll-child flex items-center gap-4 mb-12">
           <span className="text-[11px] tracking-[0.2em] uppercase shrink-0" style={{ color: 'oklch(1 0 0 / 25%)' }}>
             Experience
           </span>
           <div className="flex-1 h-[1px]" style={{ background: 'oklch(1 0 0 / 8%)' }} />
         </div>
-
-        <div>
+        <div className="mb-16">
           {experiences.map((exp, i) => (
-            <div
-              key={i}
-              className="scroll-child grid md:grid-cols-[180px_1fr_120px] gap-4 py-6 transition-all duration-300 hover:bg-[oklch(1_0_0_/_2%)]"
-              style={{ borderBottom: '1px solid oklch(1 0 0 / 6%)' }}
-            >
-              <span className="hidden md:block text-[12px] shrink-0" style={{ fontFamily: 'monospace', color: 'oklch(1 0 0 / 30%)' }}>
-                {exp.date}
-              </span>
-              <div>
-                <h4 className="text-[16px] font-medium text-foreground mb-1">{exp.role}</h4>
-                <p className="text-[13px] mb-2" style={{ color: 'oklch(1 0 0 / 40%)' }}>{exp.company}</p>
-                {exp.bullets.map((b, j) => (
-                  <p key={j} className="text-[13px] leading-relaxed" style={{ color: 'oklch(1 0 0 / 30%)' }}>• {b}</p>
-                ))}
-              </div>
-              <div className="flex md:justify-end items-start">
-                <span className="text-[11px] px-3 py-1 rounded-full" style={{ border: '1px solid oklch(1 0 0 / 15%)', color: 'oklch(1 0 0 / 50%)' }}>
-                  {exp.badge}
-                </span>
-              </div>
-            </div>
+            <TimelineRow key={i} item={exp} />
+          ))}
+        </div>
+
+        {/* Education */}
+        <div className="scroll-child flex items-center gap-4 mb-12">
+          <span className="text-[11px] tracking-[0.2em] uppercase shrink-0" style={{ color: 'oklch(1 0 0 / 25%)' }}>
+            Education
+          </span>
+          <div className="flex-1 h-[1px]" style={{ background: 'oklch(1 0 0 / 8%)' }} />
+        </div>
+        <div>
+          {education.map((edu, i) => (
+            <TimelineRow key={i} item={edu} />
           ))}
         </div>
       </div>

@@ -4,7 +4,6 @@ import { HeroSection } from '@/components/HeroSection';
 import { WorkSection } from '@/components/WorkSection';
 import { ExperienceSection } from '@/components/ExperienceSection';
 import { SkillsSection } from '@/components/SkillsSection';
-import { TeardownSection } from '@/components/TeardownSection';
 import { ContactSection } from '@/components/ContactSection';
 import { useCustomCursor } from '@/hooks/useCustomCursor';
 
@@ -30,7 +29,6 @@ function Index() {
       <WorkSection />
       <ExperienceSection />
       <SkillsSection />
-      <TeardownSection />
       <ContactSection />
     </div>
   );

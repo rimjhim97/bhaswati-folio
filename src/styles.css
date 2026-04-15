@@ -83,6 +83,49 @@
   }
 }
 
+/* Neon plasma ambient background */
+.neon-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.neon-bg::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(ellipse at 20% 20%, oklch(0.25 0.02 260 / 20%) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 30%, oklch(0.2 0.015 200 / 15%) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, oklch(0.18 0.01 280 / 12%) 0%, transparent 50%),
+    radial-gradient(ellipse at 30% 60%, oklch(0.15 0.008 220 / 10%) 0%, transparent 40%);
+  animation: plasmaMove 20s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.neon-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes plasmaMove {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(2%, -3%) rotate(2deg);
+  }
+  66% {
+    transform: translate(-1%, 2%) rotate(-1deg);
+  }
+  100% {
+    transform: translate(1%, -1%) rotate(1deg);
+  }
+}
+
 /* Custom cursor */
 .custom-cursor {
   width: 16px;

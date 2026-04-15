@@ -32,7 +32,7 @@ export function Navbar() {
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            {['work', 'about', 'teardown', 'contact'].map((s) => (
+            {['work', 'about', 'contact'].map((s) => (
               <button
                 key={s}
                 onClick={() => scrollTo(s)}
@@ -75,7 +75,7 @@ export function Navbar() {
 
       {mobileOpen && (
         <div className="fixed inset-0 z-40 bg-background flex flex-col items-center justify-center gap-8">
-          {['work', 'about', 'teardown', 'contact'].map((s) => (
+          {['work', 'about', 'contact'].map((s) => (
             <button
               key={s}
               onClick={() => scrollTo(s)}

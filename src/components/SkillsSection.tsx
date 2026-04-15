@@ -1,6 +1,5 @@
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
-const aiSkills = ['Claude API', 'LLM Product Design', 'Prompt Engineering', 'RAG Architecture', 'Agentic AI', 'Tool Use'];
 const productSkills = ['BRD/PRD', 'User Research', 'Roadmap', 'Feature Prioritization', 'A/B Testing', 'Cohort Analysis', 'Funnel Analytics', 'Stakeholder Management'];
 const techSkills = ['SQL', 'Python', 'Java', 'RESTful APIs', 'Salesforce', 'Microservices', 'Power BI', 'Jira', 'Agile/Scrum'];
 
@@ -10,12 +9,12 @@ const certs = [
   { name: 'Azure AZ-900', issuer: 'Microsoft' },
 ];
 
-function Pill({ label, bright = false }: { label: string; bright?: boolean }) {
+function Pill({ label }: { label: string }) {
   return (
     <span
       className="text-[11px] px-3 py-1.5 rounded-full transition-all duration-300 hover:text-[oklch(1_0_0_/_80%)] hover:border-[oklch(1_0_0_/_30%)]"
       style={{
-        border: `1px solid oklch(1 0 0 / ${bright ? '25' : '10'}%)`,
+        border: '1px solid oklch(1 0 0 / 10%)',
         color: 'oklch(1 0 0 / 50%)',
       }}
       data-hover
@@ -35,10 +34,6 @@ export function SkillsSection() {
           <div className="scroll-child flex items-center gap-4 mb-8">
             <span className="text-[11px] tracking-[0.2em] uppercase shrink-0" style={{ color: 'oklch(1 0 0 / 25%)' }}>Skills</span>
             <div className="flex-1 h-[1px]" style={{ background: 'oklch(1 0 0 / 8%)' }} />
-          </div>
-          <div className="scroll-child mb-6">
-            <p className="text-[12px] mb-3 uppercase tracking-[0.1em]" style={{ color: 'oklch(1 0 0 / 30%)' }}>AI & ML</p>
-            <div className="flex flex-wrap gap-2">{aiSkills.map((s) => <Pill key={s} label={s} bright />)}</div>
           </div>
           <div className="scroll-child mb-6">
             <p className="text-[12px] mb-3 uppercase tracking-[0.1em]" style={{ color: 'oklch(1 0 0 / 30%)' }}>Product</p>

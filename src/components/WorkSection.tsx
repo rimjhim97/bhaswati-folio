@@ -22,7 +22,7 @@ function WorkCard({
 }) {
   const inner = (
     <div
-      className="rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 group relative"
+      className="rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 group relative h-full"
       style={{ background: '#111', border: '1px solid oklch(1 0 0 / 8%)' }}
     >
       <div className="absolute top-5 right-5 text-foreground opacity-30 group-hover:opacity-70 transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
@@ -48,10 +48,10 @@ function WorkCard({
   );
 
   if (isExternal) {
-    return <a href={linkHref} target="_blank" rel="noopener noreferrer" data-hover className="block">{inner}</a>;
+    return <a href={linkHref} target="_blank" rel="noopener noreferrer" data-hover className="block h-full">{inner}</a>;
   }
 
-  return <Link to={linkHref as any} data-hover className="block">{inner}</Link>;
+  return <Link to={linkHref as any} data-hover className="block h-full">{inner}</Link>;
 }
 
 export function WorkSection() {
@@ -97,11 +97,13 @@ export function WorkSection() {
                   <a href="https://github.com/rimjhim97" target="_blank" rel="noopener noreferrer" data-hover>GitHub ↗</a>
                 </div>
               </div>
-              <div className="rounded-xl flex items-center justify-center" style={{ background: '#161616', border: '1px solid oklch(1 0 0 / 6%)' }}>
-                <div className="text-center" style={{ color: 'oklch(1 0 0 / 15%)' }}>
-                  <div className="text-6xl mb-2" style={{ fontFamily: 'var(--font-family-display)' }}>CT</div>
-                  <div className="text-[10px] tracking-[0.2em] uppercase">Campus Tribe</div>
-                </div>
+              <div className="rounded-xl overflow-hidden flex items-center justify-center" style={{ background: '#161616', border: '1px solid oklch(1 0 0 / 6%)', minHeight: '200px' }}>
+                <iframe
+                  src="https://campus-tribe-mate.lovable.app"
+                  title="CampusTribe Preview"
+                  className="w-full h-full min-h-[280px] rounded-xl pointer-events-none"
+                  style={{ border: 'none', transform: 'scale(0.6)', transformOrigin: 'center center', width: '166%', height: '166%' }}
+                />
               </div>
             </div>
           </Link>
@@ -117,6 +119,16 @@ export function WorkSection() {
               pills={['Claude API', 'Live on Vercel', 'Prompt Engineering']}
               linkText="View project →"
               linkHref="/work/focusstack"
+              preview={
+                <div className="rounded-xl overflow-hidden" style={{ border: '1px solid oklch(1 0 0 / 6%)' }}>
+                  <iframe
+                    src="https://mind-stack-calm.vercel.app/"
+                    title="FocusAI Preview"
+                    className="w-full pointer-events-none"
+                    style={{ border: 'none', height: '160px', transform: 'scale(0.5)', transformOrigin: 'top left', width: '200%' }}
+                  />
+                </div>
+              }
             />
           </div>
           <div className="scroll-child">
@@ -140,16 +152,13 @@ export function WorkSection() {
               linkHref="https://canva.link/rub7uma94jo6b7m"
               isExternal={true}
               preview={
-                <div className="rounded-xl h-24 flex items-center justify-center" style={{ background: '#161616', border: '1px solid oklch(1 0 0 / 6%)' }}>
-                  <div className="flex gap-2">
-                    {[1, 2, 3].map((i) => (
-                      <div key={i} className="w-10 h-14 rounded" style={{
-                        background: '#1a1a1a',
-                        border: '1px solid oklch(1 0 0 / 8%)',
-                        transform: `rotate(${(i - 2) * 5}deg)`,
-                      }} />
-                    ))}
-                  </div>
+                <div className="rounded-xl overflow-hidden" style={{ border: '1px solid oklch(1 0 0 / 6%)' }}>
+                  <iframe
+                    src="https://canva.link/rub7uma94jo6b7m"
+                    title="Product Deck Preview"
+                    className="w-full pointer-events-none"
+                    style={{ border: 'none', height: '160px', transform: 'scale(0.5)', transformOrigin: 'top left', width: '200%' }}
+                  />
                 </div>
               }
             />
