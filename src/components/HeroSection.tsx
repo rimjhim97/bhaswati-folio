@@ -41,14 +41,6 @@ export function HeroSection() {
             >
               View my work
             </button>
-            <a
-              href="#"
-              className="text-[13px] transition-all duration-300 hover:opacity-80"
-              style={{ color: 'oklch(1 0 0 / 40%)' }}
-              data-hover
-            >
-              Download CV ↗
-            </a>
           </div>
         </div>
 

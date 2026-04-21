@@ -1,11 +1,11 @@
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
-const productSkills = ['BRD/PRD', 'User Research', 'Roadmap', 'Feature Prioritization', 'A/B Testing', 'Cohort Analysis', 'Funnel Analytics', 'Stakeholder Management'];
+const productSkills = ['BRD/PRD', 'User Research', 'Roadmap', 'Feature Prioritization', 'A/B Testing', 'Requirement Gathering', 'User Stories', 'Process Maps', 'Stakeholder Management'];
 const techSkills = ['SQL', 'Python', 'Java', 'RESTful APIs', 'Salesforce', 'Microservices', 'Power BI', 'Jira', 'Agile/Scrum'];
 
 const certs = [
   { name: 'Salesforce AI Associate', issuer: 'Salesforce' },
-  { name: 'CSPO', issuer: 'Scrum Alliance' },
+  { name: 'Certified Scrum Product Owner (CSPO)', issuer: 'Scrum Alliance' },
   { name: 'Azure AZ-900', issuer: 'Microsoft' },
 ];
 

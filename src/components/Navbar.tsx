@@ -27,8 +27,8 @@ export function Navbar() {
         }}
       >
         <div className="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between">
-          <Link to="/" className="font-display text-xl font-bold text-foreground" style={{ fontFamily: 'var(--font-family-display)' }}>
-            BC
+          <Link to="/" className="text-xl text-foreground transition-transform duration-300 hover:scale-110" aria-label="Home" data-hover>
+            ☕
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
