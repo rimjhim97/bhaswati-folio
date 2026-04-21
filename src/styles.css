@@ -124,6 +124,10 @@
   z-index: 1;
 }
 
+.neon-bg > nav {
+  z-index: 50;
+}
+
 @keyframes plasmaMove {
   0% {
     transform: translate(0, 0) scale(1);
