@@ -1,15 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from '@tanstack/react-router';
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   const scrollTo = (id: string) => {
     setMobileOpen(false);
@@ -19,11 +12,12 @@ export function Navbar() {
   return (
     <>
       <nav
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+        className="fixed top-0 left-0 right-0 z-50"
         style={{
-          backgroundColor: scrolled ? 'oklch(0.07 0 0 / 90%)' : 'transparent',
-          backdropFilter: scrolled ? 'blur(12px)' : 'none',
-          borderBottom: scrolled ? '1px solid oklch(1 0 0 / 8%)' : '1px solid transparent',
+          backgroundColor: 'oklch(0.07 0 0 / 85%)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          borderBottom: '1px solid oklch(1 0 0 / 8%)',
         }}
       >
         <div className="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between">
