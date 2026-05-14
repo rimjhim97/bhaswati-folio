@@ -1,27 +1,14 @@
-import { createFileRoute, Link } from '@tanstack/react-router';
-import { useCustomCursor } from '@/hooks/useCustomCursor';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
-export const Route = createFileRoute('/work/campustribe')({
-  component: CampusTribePage,
-  head: () => ({
-    meta: [
-      { title: 'CampusTribe — AI-Powered College Social Network' },
-      { name: 'description', content: 'A closed, college-email-verified social network for MBA students with AI-powered matching.' },
-    ],
-  }),
-});
-
-function CampusTribePage() {
-  useCustomCursor();
+export function CampusTribePage() {
   const ref = useScrollAnimation();
 
   return (
     <div className="bg-background text-foreground min-h-screen" style={{ cursor: 'none' }}>
       <div className="max-w-[800px] mx-auto px-6 py-24" ref={ref}>
-        <Link to="/" className="scroll-child text-[13px] mb-12 inline-block transition-all duration-300 hover:opacity-80" style={{ color: 'oklch(1 0 0 / 40%)' }} data-hover>
+        <a href="/" className="scroll-child text-[13px] mb-12 inline-block transition-all duration-300 hover:opacity-80" style={{ color: 'oklch(1 0 0 / 40%)' }} data-hover>
           ← Back
-        </Link>
+        </a>
 
         <div className="scroll-child flex items-center gap-3 mb-6">
           <span className="text-[10px] tracking-[0.15em] uppercase" style={{ color: 'oklch(1 0 0 / 25%)' }}>AI · Social Tech · Prototype</span>
@@ -34,8 +21,7 @@ function CampusTribePage() {
         </p>
 
         <div className="scroll-child mb-12">
-          <a href="https://campus-tribe-mate.lovable.app" target="_blank" rel="noopener noreferrer" data-hover
-            className="inline-block px-6 py-3 rounded-full bg-foreground text-background text-[13px] font-bold transition-all duration-300 hover:opacity-90">
+          <a href="https://campus-tribe-mate.lovable.app" target="_blank" rel="noopener noreferrer" data-hover className="inline-block px-6 py-3 rounded-full bg-foreground text-background text-[13px] font-bold transition-all duration-300 hover:opacity-90">
             View Live Prototype ↗
           </a>
         </div>
@@ -80,7 +66,7 @@ function CampusTribePage() {
           <div>
             <h3 className="text-[18px] text-foreground font-medium mb-3" style={{ fontFamily: 'var(--font-family-display)' }}>Product Thinking</h3>
             <p className="text-[14px] leading-relaxed" style={{ color: 'oklch(1 0 0 / 40%)' }}>
-              The core insight is that meaningful connections need structure. By enforcing group meetups (minimum 3 people), removing the pressure of one-on-one matching, and using AI to continuously improve match quality through feedback, CampusTribe creates an environment where authentic relationships form naturally. The product prioritizes depth of connection over breadth of network.
+              The core insight is that meaningful connections need structure. By enforcing group meetups, removing the pressure of one-on-one matching, and using AI to continuously improve match quality through feedback, CampusTribe creates an environment where authentic relationships form naturally.
             </p>
           </div>
         </div>

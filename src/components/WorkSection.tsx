@@ -1,4 +1,3 @@
-import { Link } from '@tanstack/react-router';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 function WorkCard({
@@ -51,7 +50,7 @@ function WorkCard({
     return <a href={linkHref} target="_blank" rel="noopener noreferrer" data-hover className="block h-full">{inner}</a>;
   }
 
-  return <Link to={linkHref as any} data-hover className="block h-full">{inner}</Link>;
+  return <a href={linkHref} data-hover className="block h-full">{inner}</a>;
 }
 
 function PreviewBox({ children, gradient }: { children: React.ReactNode; gradient: string }) {
@@ -84,7 +83,7 @@ export function WorkSection() {
 
         {/* Featured — CampusTribe */}
         <div className="scroll-child mb-[2px]">
-          <Link to="/work/campustribe" data-hover className="block">
+          <a href="/work/campustribe" data-hover className="block">
             <div
               className="rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 group grid md:grid-cols-2 gap-8 relative"
               style={{ background: '#111', border: '1px solid oklch(1 0 0 / 8%)' }}
@@ -109,7 +108,7 @@ export function WorkSection() {
                 </div>
                 <div className="flex gap-4 text-[12px]" style={{ color: 'oklch(1 0 0 / 40%)' }}>
                   <span>View prototype →</span>
-                  <a href="https://github.com/rimjhim97" target="_blank" rel="noopener noreferrer" data-hover>GitHub ↗</a>
+                  <span>GitHub ↗</span>
                 </div>
               </div>
               <PreviewBox gradient="linear-gradient(135deg, #0a1628 0%, #162038 50%, #0d1a2e 100%)">
@@ -122,7 +121,7 @@ export function WorkSection() {
                 </div>
               </PreviewBox>
             </div>
-          </Link>
+          </a>
         </div>
 
         {/* Row 2 — Three equal cards */}

@@ -1,27 +1,14 @@
-import { createFileRoute, Link } from '@tanstack/react-router';
-import { useCustomCursor } from '@/hooks/useCustomCursor';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
-export const Route = createFileRoute('/work/focusstack')({
-  component: FocusStackPage,
-  head: () => ({
-    meta: [
-      { title: 'FocusStack — AI-Powered Pomodoro Timer' },
-      { name: 'description', content: 'Pomodoro timer with embedded Claude AI coach for session pattern analysis.' },
-    ],
-  }),
-});
-
-function FocusStackPage() {
-  useCustomCursor();
+export function FocusStackPage() {
   const ref = useScrollAnimation();
 
   return (
     <div className="bg-background text-foreground min-h-screen" style={{ cursor: 'none' }}>
       <div className="max-w-[800px] mx-auto px-6 py-24" ref={ref}>
-        <Link to="/" className="scroll-child text-[13px] mb-12 inline-block transition-all duration-300 hover:opacity-80" style={{ color: 'oklch(1 0 0 / 40%)' }} data-hover>
+        <a href="/" className="scroll-child text-[13px] mb-12 inline-block transition-all duration-300 hover:opacity-80" style={{ color: 'oklch(1 0 0 / 40%)' }} data-hover>
           ← Back
-        </Link>
+        </a>
 
         <div className="scroll-child flex items-center gap-3 mb-6">
           <span className="text-[10px] tracking-[0.15em] uppercase" style={{ color: 'oklch(1 0 0 / 25%)' }}>AI · Productivity · Live</span>
@@ -34,8 +21,7 @@ function FocusStackPage() {
         </p>
 
         <div className="scroll-child flex gap-4 mb-12">
-          <a href="https://mind-stack-calm.vercel.app/" target="_blank" rel="noopener noreferrer" data-hover
-            className="inline-block px-6 py-3 rounded-full bg-foreground text-background text-[13px] font-bold transition-all duration-300 hover:opacity-90">
+          <a href="https://mind-stack-calm.vercel.app/" target="_blank" rel="noopener noreferrer" data-hover className="inline-block px-6 py-3 rounded-full bg-foreground text-background text-[13px] font-bold transition-all duration-300 hover:opacity-90">
             Try it Live ↗
           </a>
         </div>
@@ -44,7 +30,7 @@ function FocusStackPage() {
           <div>
             <h3 className="text-[18px] text-foreground font-medium mb-3" style={{ fontFamily: 'var(--font-family-display)' }}>The Problem</h3>
             <p className="text-[14px] leading-relaxed" style={{ color: 'oklch(1 0 0 / 40%)' }}>
-              Productivity tools are either too simple (basic timers) or too complex (full project management suites). Students and professionals need something in between — a tool that not only tracks focus time but actively helps them understand and improve their work patterns.
+              Productivity tools are either too simple or too complex. Students and professionals need a tool that not only tracks focus time but actively helps them understand and improve their work patterns.
             </p>
           </div>
 
@@ -80,7 +66,7 @@ function FocusStackPage() {
           <div>
             <h3 className="text-[18px] text-foreground font-medium mb-3" style={{ fontFamily: 'var(--font-family-display)' }}>Product Thinking</h3>
             <p className="text-[14px] leading-relaxed" style={{ color: 'oklch(1 0 0 / 40%)' }}>
-              Simplicity is the core design principle. Every feature was evaluated against "does this help the user focus more?" If the answer wasn't a clear yes, it was cut. The AI coach was designed to be proactive but not intrusive — surfacing insights at natural breakpoints rather than interrupting flow states. The habit formation loop (timer → streak → insight → improvement) creates a positive feedback cycle.
+              Simplicity is the core design principle. Every feature was evaluated against whether it helps the user focus more, creating a habit loop of timer, streak, insight, and improvement.
             </p>
           </div>
         </div>
